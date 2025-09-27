@@ -21,7 +21,7 @@ export default function Blogs() {
         <Typography sx={blogSubtitleStyle}>Read Our Latest News</Typography>
         <Grid container spacing={4}>
           {[1, 2, 3].map((_, index) => (
-            <Grid item xs={12} md={4} key={index}>
+            <Grid item xs={12} md={4} lg={3} key={index}>
               <BlogCard />
             </Grid>
           ))}

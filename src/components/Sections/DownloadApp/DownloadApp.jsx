@@ -5,7 +5,7 @@ import arrow from "../../../assets/down-arr.png";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import SmsForm from "./SmsForm";
 
-//download app component to render input details using SmsForm component
+
 export default function DownloadApp() {
   return (
     <Box

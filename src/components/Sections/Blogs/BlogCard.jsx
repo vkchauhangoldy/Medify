@@ -4,7 +4,7 @@ import person from "../../../assets/person.png";
 
 export default function BlogCard() {
   return (
-    <Box border="1px solid rgba(0,0,0,0.1)" borderRadius={2}>
+    <Box border="1px solid rgba(0,0,0,0.1)" borderRadius={2} width={0.5}>
       <Box component="img" src={featured} width={1} />
       <Box p={2}>
         <Typography

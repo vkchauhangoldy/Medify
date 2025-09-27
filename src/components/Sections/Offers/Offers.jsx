@@ -5,7 +5,7 @@ import "swiper/css";
 import offer1 from "../../../assets/offer1.png";
 import offer2 from "../../../assets/offer2.png";
 
-const offers = [offer1, offer2, offer1, offer2, offer1, offer2]; // Array of offers
+const offers = [offer1, offer2, offer1, offer2, offer1, offer2];
 
 export default function Offers() {
   return (
