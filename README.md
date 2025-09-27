@@ -110,6 +110,3 @@ Select a center to book an appointment.
 Check your bookings on the My Bookings page.
 Contributing
 If you'd like to contribute to this project, please fork the repository and submit a pull request with your changes.
-
-Contact
-For any questions or suggestions, please contact Asmi.
