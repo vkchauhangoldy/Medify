@@ -1,6 +1,6 @@
 import { Container, Stack, Box, Typography } from "@mui/material";
 import axios from "axios";
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import HospitalCard from "../components/HospitalCard/HospitalCard";
 import icon from "../assets/tick.png";
@@ -11,55 +11,53 @@ import AutohideSnackbar from "../components/AutohideSnackbar/AutohideSnackbar";
 import NavBar from "../components/NavBar/NavBar";
 
 export default function Search() {
-  const [searchParams] = useSearchParams();
+  //eslint-disable-next-line
+  const [seachParams, setSearchParams] = useSearchParams();
   const [hospitals, setHospitals] = useState([]);
-  const [state, setState] = useState(searchParams.get("state") || "");
-  const [city, setCity] = useState(searchParams.get("city") || "");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [bookingDetails, setBookingDetails] = useState({});
-  const [showBookingSuccess, setShowBookingSuccess] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [state, setState] = useState(seachParams.get("state"));
+  const [city, setCity] = useState(seachParams.get("city"));
   const availableSlots = {
     morning: ["11:30 AM"],
     afternoon: ["12:00 PM", "12:30 PM", "01:30 PM", "02:00 PM", "02:30 PM"],
     evening: ["06:00 PM", "06:30 PM", "07:00 PM", "07:30 PM"],
   };
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [bookingDetails, setBookingDetails] = useState({});
+  const [showBookingSuccess, setShowBookingSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Fetch hospitals based on state and city
+  //API to fetch hospitals based on state and city selection
   useEffect(() => {
-    const fetchHospitals = async () => {
-      if (!state || !city) return;
-
+    const getHospitals = async () => {
       setHospitals([]);
       setIsLoading(true);
-
       try {
-        const { data } = await axios.get(
+        const data = await axios.get(
           `https://meddata-backend.onrender.com/data?state=${state}&city=${city}`
         );
-        setHospitals(data);
-      } catch (error) {
-        console.error("Error fetching hospitals:", error);
-      } finally {
+        setHospitals(data.data);
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
         setIsLoading(false);
       }
     };
 
-    fetchHospitals();
+    if (state && city) {
+      getHospitals();
+    }
   }, [state, city]);
 
-  // Sync state and city with searchParams
   useEffect(() => {
-    setState(searchParams.get("state") || "");
-    setCity(searchParams.get("city") || "");
-  }, [searchParams]);
+    setState(seachParams.get("state"));
+    setCity(seachParams.get("city"));
+  }, [seachParams]);
 
-  // Memoized function to handle booking modal
-  const handleBookingModal = useCallback((details) => {
+  // show booking modal
+  const handleBookingModal = (details) => {
     setBookingDetails(details);
     setIsModalOpen(true);
-  }, []);
+  };
 
   return (
     <>
@@ -85,7 +83,7 @@ export default function Search() {
               background: "#fff",
               p: 3,
               borderRadius: 2,
-              transform: "translateY(50px)",
+              transform: "translatey(50px)",
               mb: "50px",
               boxShadow: "0 0 10px rgba(0,0,0,0.1)",
             }}
@@ -95,7 +93,7 @@ export default function Search() {
         </Box>
 
         <Container maxWidth="xl" sx={{ pt: 8, pb: 10, px: { xs: 0, md: 4 } }}>
-          {state && city && hospitals.length > 0 && (
+          {hospitals.length > 0 && (
             <Box sx={{ mb: 3 }}>
               <Typography
                 component="h1"
@@ -126,26 +124,27 @@ export default function Search() {
               width={{ xs: 1, md: "calc(100% - 384px)" }}
               mr="24px"
             >
+              {hospitals.length > 0 &&
+                hospitals.map((hospital) => (
+                  <HospitalCard
+                    key={hospital["Hospital Name"]}
+                    details={hospital}
+                    availableSlots={availableSlots}
+                    handleBooking={handleBookingModal}
+                  />
+                ))}
+
               {isLoading && (
                 <Typography variant="h3" bgcolor="#fff" p={3} borderRadius={2}>
                   Loading...
                 </Typography>
               )}
 
-              {!state && !city && (
+              {!state && (
                 <Typography variant="h3" bgcolor="#fff" p={3} borderRadius={2}>
                   Please select a state and city
                 </Typography>
               )}
-
-              {hospitals.map((hospital) => (
-                <HospitalCard
-                  key={hospital["Hospital Name"]}
-                  details={hospital}
-                  availableSlots={availableSlots}
-                  handleBooking={handleBookingModal}
-                />
-              ))}
             </Stack>
 
             <img src={cta} width={360} height="auto" alt="banner" />

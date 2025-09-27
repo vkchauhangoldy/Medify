@@ -5,8 +5,6 @@ import "swiper/css";
 import offer1 from "../../../assets/offer1.png";
 import offer2 from "../../../assets/offer2.png";
 
-const offers = [offer1, offer2, offer1, offer2, offer1, offer2];
-
 export default function Offers() {
   return (
     <Box py={6}>
@@ -24,16 +22,29 @@ export default function Offers() {
             },
           }}
         >
-          {offers.map((offer, index) => (
-            <SwiperSlide key={index}>
-              <Box
-                component="img"
-                src={offer}
-                alt={`Offer ${index + 1}`}
-                sx={{ width: 1, height: "auto" }}
-              />
-            </SwiperSlide>
-          ))}
+          <SwiperSlide>
+            <Box component={"img"} src={offer1} />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Box component={"img"} src={offer2} />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Box component={"img"} src={offer1} />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Box component={"img"} src={offer2} />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Box component={"img"} src={offer1} />
+          </SwiperSlide>
+
+          <SwiperSlide>
+            <Box component={"img"} src={offer2} />
+          </SwiperSlide>
         </Swiper>
       </Container>
     </Box>

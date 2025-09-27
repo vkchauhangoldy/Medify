@@ -4,7 +4,7 @@ import person from "../../../assets/person.png";
 
 export default function BlogCard() {
   return (
-    <Box border="1px solid rgba(0,0,0,0.1)" borderRadius={2} width={0.5}>
+    <Box border="1px solid rgba(0,0,0,0.1)" borderRadius={2}>
       <Box component="img" src={featured} width={1} />
       <Box p={2}>
         <Typography
@@ -13,7 +13,7 @@ export default function BlogCard() {
           mb={1}
           fontSize={{ xs: 12, md: 16 }}
         >
-          Medical | Dec 19, 2024
+          Medical | March 31, 2022
         </Typography>
         <Typography
           component="h3"

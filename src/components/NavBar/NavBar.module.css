@@ -1,26 +1,26 @@
 .navlinks a {
-  color: #102851;
-  text-decoration: none;
-}
-
-@media (max-width: 900px) {
-  .navlinks {
-    background: #102851;
-    position: fixed;
-    top: 0;
-    right: 0;
-    z-index: 9999;
-    width: 90vw;
-    height: 100vh;
-    transform: translateX(100%);
-    transition: transform 400ms ease;
+    color: #102851;
+    text-decoration: none;
   }
-
-  .navlinks.active {
-    transform: translateX(0);
+  
+  @media (max-width: 900px) {
+    .navlinks {
+      background: #102851;
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 9999;
+      width: 90vw;
+      height: 100vh;
+      transform: translateX(100%);
+      transition: transform 400ms ease;
+    }
+  
+    .navlinks.active {
+      transform: translateX(0);
+    }
+  
+    .navlinks a {
+      color: #fff;
+    }
   }
-
-  .navlinks a {
-    color: #fff;
-  }
-}

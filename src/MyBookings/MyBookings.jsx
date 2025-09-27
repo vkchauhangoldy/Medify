@@ -83,14 +83,14 @@ export default function MyBookings() {
                   />
                 ))}
 
-              {filteredBookings.length == 0 && (
+              {filteredBookings.length === 0 && (
                 <Typography variant="h3" bgcolor="#fff" p={3} borderRadius={2}>
                   No Bookings Found!
                 </Typography>
               )}
             </Stack>
 
-            <img src={cta} width={360} height="auto" />
+            <img src={cta} width={360} height="auto" alt="cta" />
           </Stack>
         </Container>
       </Box>

@@ -1,24 +1,23 @@
 import { Container, Box, Stack } from "@mui/material";
-import NavBar from "../components/NavBar/NavBar";
 import HeroSlider from "../components/HeroSlider/HeroSlider";
 import SearchHospital from "../components/SearchHospital/SearchHospital";
-import HeroServices from "../components/IconLayout/HeroServices";
-import Offers from "../components/Sections/Offers/Offers";
-import Specialization from "../components/Sections/Specialization/Specialization";
-import Specialists from "../components/Sections/Specialists/Specialists";
-import PatientCaring from "../components/Sections/PatientCaring/PatientCaring";
-import Blogs from "../components/Sections/Blogs/Blogs";
-import OurFamilies from "../components/Sections/OurFamilies/OurFamilies";
 import FAQs from "../components/Sections/FAQs/FAQs";
+import OurFamilies from "../components/Sections/OurFamilies/OurFamilies";
+import Blogs from "../components/Sections/Blogs/Blogs";
+import PatientCaring from "../components/Sections/PatientCaring/PatientCaring";
+import Specialists from "../components/Sections/Specialists/Specialists";
+import Specialization from "../components/Sections/Specialization/Specialization";
+import Offers from "../components/Sections/Offers/Offers";
+import NavBar from "../components/NavBar/NavBar";
+import HeroServices from "../components/HeroServices/HeroServices";
 
 export default function Home() {
   return (
     <Box>
-      {/* Hero Section */}
       <Box
         sx={{
           background:
-            "linear-gradient(#E7F0FF, rgba(232, 241, 255, 0.47) 90%, #fff 10%)",
+            "linear-gradient(#E7F0FF , rgba(232, 241, 255, 0.47) 90%, #fff 10%)",
         }}
         mb={4}
       >
@@ -41,13 +40,18 @@ export default function Home() {
         </Container>
       </Box>
 
-      {/* Main Sections */}
       <Offers />
+
       <Specialization />
+
       <Specialists />
+
       <PatientCaring />
+
       <Blogs />
+
       <OurFamilies />
+
       <FAQs />
     </Box>
   );

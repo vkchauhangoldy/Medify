@@ -4,7 +4,6 @@ import { Box, Divider, Stack, Typography } from "@mui/material";
 import styles from "./DaySelector.module.css";
 import { format, add, isEqual, startOfDay } from "date-fns";
 import { SlideNextButton, SlidePrevButton } from "./SliderButtons";
-// import { useMemo } from "react";
 
 export default function DaySelector({
   selectedDate,
@@ -12,27 +11,22 @@ export default function DaySelector({
   totalSlots,
 }) {
   const date = startOfDay(new Date());
-
-  // Memoize the calculation of dateItems
   const dateItems = [];
 
   for (let i = 0; i < 7; i++) {
     dateItems.push(add(date, { days: i }));
   }
-  // console.log(dateItems);
 
-  // const dateItems = useMemo(() => {
-  //   return Array.from({ length: 7 }, (_, i) => add(date, { days: i }));
-  // }, [date]);
-
-  // Custom date formatting logic
   const customDateFormat = (day) => {
-    if (isEqual(date, day)) return "Today";
-    if (isEqual(date, add(day, { days: -1 }))) return "Tomorrow";
-    return format(day, "E, d LLL");
+    if (isEqual(date, day)) {
+      return "Today";
+    } else if (isEqual(date, add(day, { days: -1 }))) {
+      return "Tomorrow";
+    } else {
+      return format(day, "E, d LLL");
+    }
   };
 
-  // Handle date selection
   const handleClick = (day) => {
     setSelectedDate(day);
   };
@@ -81,7 +75,7 @@ export default function DaySelector({
                 zIndex={999}
                 mt="5px"
                 mx="auto"
-              />
+              ></Box>
             </Stack>
           </SwiperSlide>
         ))}
@@ -108,7 +102,7 @@ export default function DaySelector({
         bottom={0}
         left="50%"
         sx={{ translate: "-50% 0" }}
-      />
+      ></Box>
     </Stack>
   );
 }
