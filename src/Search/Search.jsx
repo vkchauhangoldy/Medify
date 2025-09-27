@@ -104,7 +104,7 @@ export default function Search() {
               >
                 {`${hospitals.length} medical centers available in `}
                 <span style={{ textTransform: "capitalize" }}>
-                  {city.toLocaleLowerCase()}
+                  {city?.toLocaleLowerCase()}
                 </span>
               </Typography>
               <Stack direction="row" spacing={2}>
