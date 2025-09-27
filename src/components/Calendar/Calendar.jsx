@@ -14,10 +14,6 @@ const Calendar = React.memo(
       availableSlots.morning.length +
       availableSlots.afternoon.length +
       availableSlots.evening.length;
-    // const totalSlots = useMemo(() => {
-    //   const { morning = [], afternoon = [], evening = [] } = availableSlots;
-    //   return morning.length + afternoon.length + evening.length;
-    // }, [availableSlots]);
 
     return (
       <Box>

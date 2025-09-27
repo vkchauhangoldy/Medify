@@ -62,7 +62,7 @@ export default function Footer() {
           mt={5}
           borderTop="1px solid rgba(255,255,255,0.1)"
         >
-          Copyright ©2023 Surya Nursing Home.com. All Rights Reserved
+          Copyright ©2025 VK Nursing Home. All Rights Reserved
         </Typography>
       </Container>
     </Box>
