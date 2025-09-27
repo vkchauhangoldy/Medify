@@ -108,7 +108,7 @@ export default function SearchHospital() {
         required
         sx={{ minWidth: 200, width: "100%" }}
       >
-        <MenuItem disabled value="" selected>
+        <MenuItem disabled value="">
           City
         </MenuItem>
         {cities.map((city) => (
@@ -119,6 +119,7 @@ export default function SearchHospital() {
       </Select>
 
       <Button
+        id="searchBtn"
         type="submit"
         variant="contained"
         size="large"
