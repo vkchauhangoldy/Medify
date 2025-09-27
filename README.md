@@ -1,4 +1,4 @@
-# ASMMI-MEDIFY - Medical Center Slot Booking Platform
+# VK-MEDIFY - Medical Center Slot Booking Platform
 
 ## Overview
 
@@ -7,21 +7,26 @@ MEDIFY is a React-based web application that allows users to find medical center
 ## Features
 
 - **Landing Page**:
+
   - Navigation bar with links to Find Doctors, Hospitals, Medicines, and more.
   - Search functionality with dropdowns for selecting state and city.
 
 - **Search Results Page**:
+
   - Listings of available medical centers based on user-selected location.
   - Option to book appointments directly from the results.
 
 - **Booking Interface**:
+
   - Calendar-like interface for selecting appointment dates.
   - Availability of time slots for booking within one week in advance.
 
 - **My Bookings Page**:
+
   - Personalized view displaying all user bookings with details such as medical center name, appointment date, and time.
 
 - **Responsive Design**:
+
   - Fully responsive design that adheres to modern web standards.
 
 - **Carousel Implementation**:
@@ -86,7 +91,6 @@ To run this project locally, follow these steps:
 
 Clone the repository:
 
-
 Install dependencies:
 
 npm install
@@ -109,6 +113,3 @@ If you'd like to contribute to this project, please fork the repository and subm
 
 Contact
 For any questions or suggestions, please contact Asmi.
-
-
-
